@@ -44,10 +44,13 @@ public abstract class MixinWorldChunk extends Chunk {
 
         // Upgrading a ProtoChunk to a WorldChunk might result in empty sections being copied over
         // These simply waste memory, and the WorldChunk will return air blocks for any absent section without issue.
+
+        /* DISABLED because many places in WorldChunk do sectionArray[i].empty() without testing for null first
         for (int i = 0; i < sectionArray.length; i++) {
             if (sectionArray[i].isEmpty()) {
                 sectionArray[i] = null;
             }
         }
+         */
     }
 }
